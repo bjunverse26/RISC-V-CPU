@@ -1,0 +1,26 @@
+00500093 // addi x1,  x0, 5
+00700113 // addi x2,  x0, 7
+002081B3 // add  x3,  x1, x2
+00302023 // sw   x3,  0(x0)
+00002203 // lw   x4,  0(x0)
+04321463 // bne  x4,  x3, fail
+123452B7 // lui  x5,  0x12345
+00000317 // auipc x6, 0x0
+008003EF // jal  x7,  +8
+06300413 // addi x8,  x0, 99   (skipped)
+02A00413 // addi x8,  x0, 42
+03400493 // addi x9,  x0, 52
+00448067 // jalr x0,  x9, 4
+04D00513 // addi x10, x0, 77   (skipped)
+00801223 // sh   x8,  4(x0)
+00405583 // lhu  x11, 4(x0)
+00100323 // sb   x1,  6(x0)
+00604603 // lbu  x12, 6(x0)
+0020C463 // blt  x1,  x2, +8
+00100693 // addi x13, x0, 1    (skipped)
+00200693 // addi x13, x0, 2
+00D02423 // sw   x13, 8(x0)
+0000006F // jal  x0,  0        (halt/pass loop)
+07F00693 // addi x13, x0, 127  (fail)
+00D02423 // sw   x13, 8(x0)
+0000006F // jal  x0,  0        (halt/fail loop)
