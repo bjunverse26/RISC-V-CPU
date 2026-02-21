@@ -1,4 +1,6 @@
-module Instruction_Memory(
+module Instruction_Memory #(
+    parameter MEM_INIT_FILE = "program.hex"
+)(
     input [31:0]        instr_addr,
     output [31:0]       instr
 );
@@ -16,8 +18,8 @@ initial begin
     for (i = 0; i < IMEM_WORDS; i = i + 1)
         rom[i] = 32'h00000013; // NOP (ADDI x0, x0, 0)
 
-    // Program image initialization for both synthesis and simulation.
-`include "program_rom_init.vh"
+    // Program image initialization from hex file.
+    $readmemh(MEM_INIT_FILE, rom);
 end
 
 endmodule
